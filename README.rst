@@ -45,3 +45,29 @@ Commit 4 - Socket.io
 socket.io added, re-run `npm install`, demo here: ::
 
     /stooges/chat/
+
+Chapter 3 & 4
+-------------
+
+Chapters 3 and 4 are not implemented for lack of functional code.
+
+Chapter 5
+---------
+
+Commit 5 - Setting up the Project
+'''''''''''''''''''''''''''''''''
+
+mongoose added, re-run `npm install`, yet not used in the chapter.
+
+Only one commit for the entire project as it will only function as a whole.
+
+The chapter adds basic scafolding for the project, there are a couple errata in the book.
+
+* missing instruction to download `underscore.js`.
+* missing instruction to download `text.js`.
+* missing `public/templates/index.html`, simple hello world added here.
+* conflicting use of `public/js/lib` and `public/js/libs` directory, `lib` used here.
+
+Visit the following url to demo the application: ::
+
+    /
