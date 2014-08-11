@@ -33,3 +33,8 @@ Commit 2 - Templates
 ''''''''''''''''''''
 
 The previous urls still demo the code, which was updated to use jade templates
+
+Commit 3 - Events
+'''''''''''''''''
+
+Run `node bin/2_6_events.js` to demo events.
