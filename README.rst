@@ -13,7 +13,7 @@ To view these samples simply step through each commit, and you'll progressively 
 
 You'll need to install `nodejs`, on ubuntu 14.04 `apt-get install node-js` will install v0.10.30, which is what was used on these examples.
 
-To get set up you may have to `cd` to the project directory and `npm install` and possibly repeat installation at each checkout, the run `node app`.
+To get set up you may have to `cd` to the project directory and `npm install` and possibly repeat installation at each checkout, and (re-)run `node app.js`.
 
 Chapter 2
 ---------
@@ -38,3 +38,10 @@ Commit 3 - Events
 '''''''''''''''''
 
 Run `node bin/2_6_events.js` to demo events.
+
+Commit 4 - Socket.io
+''''''''''''''''''''
+
+socket.io added, re-run `npm install`, demo here: ::
+
+    /stooges/chat/
