@@ -28,3 +28,8 @@ The following urls demo the sample code: ::
     /stooges/[name]
     /stooges/
     /
+
+Commit 2 - Templates
+''''''''''''''''''''
+
+The previous urls still demo the code, which was updated to use jade templates
