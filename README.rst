@@ -71,3 +71,27 @@ The chapter adds basic scafolding for the project, there are a couple errata in 
 Visit the following url to demo the application: ::
 
     /
+
+Chapter 6
+---------
+
+Author mentioned TODO:
+
+* implement salted passwords
+* make every request check authenticated session key
+* confirm e-mail, confirm password
+* registration form feedback on failures
+
+errata:
+
+* missing instructions for installing `nodemailer`
+* missing `config/mail.js`
+* missing `layout.jade`
+
+updated:
+
+* some middleware had to be replaced due to updated `express`:
+  - `express.limit` replaced with `raw-body`, needs `media-typer`
+  - `express.bodyParser` replaced with `body-parser`
+  - `express.cookieParser` replaced with `cookies`, needs `keygrip`
+  - `express.session` replaced with `express-session`
