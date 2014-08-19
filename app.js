@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var nodemailer = require('nodemailer');
 var MemoryStore = require('connect').session.MemoryStore;
-var getRawBody = require('raw-body');
 var bodyParser = require('body-parser');
 var Cookies = require('cookies');
 var Keygrip = require('keygrip');
@@ -22,30 +21,6 @@ var Account = require('./models/Account')(config, mongoose, nodemailer);
 
 app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
-
-app.use(function(req, res, next) {
-  //var contentType = req.headers['content-type'] || '',
-      //mime = contentType.split(';')[0],
-      //encoding = typer.parse(contentType).parameters.charset;
-
-  req.on('data', function(chunk) {
-    req.rawBody += chunk;
-  });
-  next();
-});
-
-// express.limit no longer supported
-app.use(function(req, res, next) {
-  getRawBody(req, {
-    length: req.headers['content-length'],
-    limit: '1mb',
-  }, function(err, string) {
-    if(err)
-      return next(err);
-    req.text = string;
-    next();
-  });
-});
 
 // express.bodyParser no longer supported
 app.use(bodyParser.urlencoded());
@@ -82,6 +57,15 @@ app.post('/login', function(req, res) {
     console.log('/login: end');
   });
 });
+
+app.post('/test', function(req, res) {
+  console.log('/test: start');
+  var test = req.param('test', '');
+  console.log('/test: content-length: ' + req.get('content-length'));
+  console.log('/test: rawBody: ' + req.rawBody);
+  console.log('/test: end');
+  res.send(200);
+})
 
 app.post('/register', function(req, res) {
   console.log('/register: start');
@@ -144,4 +128,4 @@ app.post('/resetPassword', function(req, res) {
   res.render('resetPasswordSuccess.jade');
 });
 
-app.listen(8080);
+app.listen(8000);

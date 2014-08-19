@@ -20,8 +20,8 @@ Chapter 2
 
 Introduction to Node.js
 
-Commit 1 - Express
-''''''''''''''''''
+Express
+'''''''
 
 The following urls demo the sample code: ::
 
@@ -29,18 +29,18 @@ The following urls demo the sample code: ::
     /stooges/
     /
 
-Commit 2 - Templates
-''''''''''''''''''''
+Templates
+'''''''''
 
 The previous urls still demo the code, which was updated to use jade templates
 
-Commit 3 - Events
-'''''''''''''''''
+Events
+''''''
 
 Run ``node bin/2_6_events.js`` to demo events.
 
-Commit 4 - Socket.io
-''''''''''''''''''''
+Socket.io
+'''''''''
 
 socket.io added, re-run ``npm install``, demo here: ::
 
@@ -51,11 +51,8 @@ Chapter 3 & 4
 
 Chapters 3 and 4 are not implemented for lack of functional code.
 
-Chapter 5
----------
-
-Commit 5 - Setting up the Project
-'''''''''''''''''''''''''''''''''
+Chapter 5 - Setting up the project
+----------------------------------
 
 mongoose added, re-run ``npm install``, yet not used in the chapter.
 
@@ -92,7 +89,7 @@ updated:
 
 some middleware had to be replaced due to updated ``express``:
 
-* ``express.limit`` replaced with ``raw-body``, needs ``media-typer``
+* ``express.limit`` removed - built-in to ``body-parser``
 * ``express.bodyParser`` replaced with ``body-parser``
 * ``express.cookieParser`` replaced with ``cookies``, needs ``keygrip``
 * ``express.session`` replaced with ``express-session``
