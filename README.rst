@@ -100,3 +100,13 @@ To demo the code visit::
     /#login
     /#index
     /#forgotpassword
+
+Chapter 7
+---------
+
+errata:
+
+* missing ``public/js/views/status.js``
+* missing ``public/js/SocialNetView.js``
+* minor typos and forgotten refactors
+

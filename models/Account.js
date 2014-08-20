@@ -1,20 +1,30 @@
 module.exports = function(config, mongoose, nodemailer) {
   var crypto = require('crypto');
 
+  var Status = new mongoose.Schema({
+    name: {
+      first:    {type: String},
+      last:     {type: String}
+    },
+    status:     {type: String}
+  });
+
   var AccountSchema = new mongoose.Schema({
-    email:    {type: String, unique: true},
+    email:      {type: String, unique: true},
     password:   {type: String},
     name: {
-      first:  {type: String},
-      last:   {type: String}
+      first:    {type: String},
+      last:     {type: String}
     },
     birthday: {
-      day:  {type: Number, min: 1, max: 31, required: false},
-      month:  {type: Number, min: 1, max: 12, required: false},
-      year:   {type: Number}
+      day:      {type: Number, min: 1, max: 31, required: false},
+      month:    {type: Number, min: 1, max: 12, required: false},
+      year:     {type: Number}
     },
     photoUrl:   {type: String},
-    biography:  {type: String}
+    biography:  {type: String},
+    status:     [Status], // my status updates only
+    activity:   [Status]  // all status updates
   });
 
   var Account = mongoose.model('Account', AccountSchema);
@@ -74,10 +84,16 @@ module.exports = function(config, mongoose, nodemailer) {
     Account.findOne(
       { email:email, password:shaSum.digest('hex') },
       function(err, doc) {
-        callback(null!=doc);
+        callback(doc);
       }
     );
   };
+
+  var findById = function(accountId, callback) {
+    Account.findOne({_id:accountId}, function(err, doc) {
+      callback(doc);
+    });
+  }
 
   var register = function(email, password, firstName, lastName) {
     var shaSum = crypto.createHash('sha256');
@@ -95,6 +111,7 @@ module.exports = function(config, mongoose, nodemailer) {
   }
 
   return {
+    findById: findById,
     register: register,
     forgotPassword: forgotPassword,
     changePassword: changePassword,

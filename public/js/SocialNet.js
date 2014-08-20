@@ -1,7 +1,7 @@
 define(['router'], function(router) {
   var initialize = function() {
     checkLogin(runApplication);
-  }
+  };
 
   var checkLogin = function(callback) {
     $.ajax('/account/authenticated', {
@@ -13,7 +13,7 @@ define(['router'], function(router) {
         return callback(false);
       }
     });
-  }
+  };
 
   var runApplication = function(authenticated) {
     if(!authenticated) {
